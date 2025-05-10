@@ -1,0 +1,40 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:suki="https://github.com/kikipoulet/SukiUI"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="StarsAICopilot.Avalonia.Pages.HomePage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <suki:GlassCard Margin="5" Grid.Row="0">
+            <StackPanel Margin="10" Orientation="Horizontal">
+                <TextBlock Text="首页" FontSize="22"/>
+            </StackPanel>
+        </suki:GlassCard>
+        <suki:GlassCard Margin="5,0,0,5" Grid.Row="1">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <suki:GlassCard>
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock FontSize="16" x:Name="CityName"/>
+                                <TextBlock FontWeight="Bold" FontSize="25" x:Name="Temperature"/>
+                                <TextBlock FontWeight="Bold" FontSize="17" x:Name="Weather"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </suki:GlassCard>
+                    <suki:GlassCard Margin="3,0,0,0">
+                        <StackPanel VerticalAlignment="Center"> 
+                            <TextBlock VerticalAlignment="Center" TextWrapping="Wrap" FontFamily="{StaticResource Mooli}" FontWeight="Bold" FontSize="22" x:Name="QuoteTextBlock"/>
+                            <TextBlock VerticalAlignment="Center" Margin="0,2,0,0" HorizontalAlignment="Right" FontSize="16" x:Name="AuthorTextBlock"/>
+                        </StackPanel>
+                    </suki:GlassCard>
+                </StackPanel>
+            </StackPanel>
+        </suki:GlassCard>
+    </Grid>
+</UserControl>  

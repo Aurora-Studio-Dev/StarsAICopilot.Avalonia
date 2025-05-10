@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarsAICopilot.Avalonia", "StarsAICopilot.Avalonia\StarsAICopilot.Avalonia.csproj", "{210C45A7-CA02-48D2-8D43-1AE249E41111}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{210C45A7-CA02-48D2-8D43-1AE249E41111}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{210C45A7-CA02-48D2-8D43-1AE249E41111}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{210C45A7-CA02-48D2-8D43-1AE249E41111}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{210C45A7-CA02-48D2-8D43-1AE249E41111}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

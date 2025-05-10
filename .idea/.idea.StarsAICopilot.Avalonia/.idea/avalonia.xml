@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="StarsAICopilot.Avalonia/App.axaml" value="StarsAICopilot.Avalonia/StarsAICopilot.Avalonia.csproj" />
+        <entry key="StarsAICopilot.Avalonia/MainWindow.axaml" value="StarsAICopilot.Avalonia/StarsAICopilot.Avalonia.csproj" />
+        <entry key="StarsAICopilot.Avalonia/Pages/ChatPage.axaml" value="StarsAICopilot.Avalonia/StarsAICopilot.Avalonia.csproj" />
+        <entry key="StarsAICopilot.Avalonia/Pages/HomePage.axaml" value="StarsAICopilot.Avalonia/StarsAICopilot.Avalonia.csproj" />
+        <entry key="StarsAICopilot.Avalonia/Pages/SettingsPage.axaml" value="StarsAICopilot.Avalonia/StarsAICopilot.Avalonia.csproj" />
+        <entry key="StarsAICopilot.Avalonia/Pages/ToolsPage.axaml" value="StarsAICopilot.Avalonia/StarsAICopilot.Avalonia.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

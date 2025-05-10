@@ -1,0 +1,73 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:suki="https://github.com/kikipoulet/SukiUI"
+             xmlns:objectModel="clr-namespace:System.Collections.ObjectModel;assembly=System.ObjectModel"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="StarsAICopilot.Avalonia.Pages.SettingsPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <suki:GlassCard Margin="5" Grid.Row="0">
+            <StackPanel Margin="10" Orientation="Horizontal">
+                <TextBlock Text="设置" FontSize="22"/>
+            </StackPanel>
+        </suki:GlassCard>
+        <suki:GlassCard Margin="5,0" Grid.Row="1">
+            <suki:SettingsLayout>
+                <suki:SettingsLayout.Items>
+                    <objectModel:ObservableCollection x:TypeArguments="suki:SettingsLayoutItem">
+                        <suki:SettingsLayoutItem Header="AI服务">
+                            <suki:SettingsLayoutItem.Content>
+                                <StackPanel>
+                                    <Expander ExpandDirection="Down">
+                                        <Expander.Header>
+                                            <StackPanel Orientation="Horizontal">
+                                                <materialIcons:MaterialIcon Kind="Server"/>
+                                                <StackPanel Margin="5,0,0,0">
+                                                    <TextBlock Text="AI服务配置" FontSize="15"/>
+                                                    <TextBlock Text="设置 AI 服务的 API" FontSize="10"/>
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </Expander.Header>
+                                        <StackPanel>
+                                            <Grid Margin="0,15,0,0">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock  VerticalAlignment="Center" Text="API 地址"/>
+                                                <TextBox Grid.Column="1" x:Name="ApiUrl" VerticalAlignment="Center" Width="300"/>
+                                            </Grid>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock VerticalAlignment="Center" Text="API 密钥"/>
+                                                <TextBox Grid.Column="1" x:Name="ApiKey" VerticalAlignment="Center" Width="300"/>
+                                            </Grid>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock VerticalAlignment="Center" Text="模型"/>
+                                                <TextBox Grid.Column="1" x:Name="Mod" VerticalAlignment="Center" Width="300"/>
+                                            </Grid>
+                                            <Button Margin="3" HorizontalAlignment="Right" Content="保存" Click="SaveConfig_API_OnClick" x:Name="SaveConfig_API"/>
+                                        </StackPanel>
+                                    </Expander>
+                                </StackPanel>
+                            </suki:SettingsLayoutItem.Content>
+                        </suki:SettingsLayoutItem>
+                    </objectModel:ObservableCollection>
+                </suki:SettingsLayout.Items>
+            </suki:SettingsLayout>
+        </suki:GlassCard>
+    </Grid>
+</UserControl>

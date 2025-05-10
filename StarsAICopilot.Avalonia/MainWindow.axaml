@@ -1,0 +1,47 @@
+<suki:SukiWindow xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
+        xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+        xmlns:pages="clr-namespace:StarsAICopilot.Avalonia.Pages"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="StarsAICopilot.Avalonia.MainWindow"
+        Title="StarsAI Copilot">
+    <suki:SukiSideMenu IsSearchEnabled="False">
+        <suki:SukiSideMenu.Items>
+            <suki:SukiSideMenuItem Header="首页" >
+                <suki:SukiSideMenuItem.Icon>
+                    <materialIcons:MaterialIcon Kind="Home" />
+                </suki:SukiSideMenuItem.Icon>
+                <suki:SukiSideMenuItem.PageContent>
+                    <pages:HomePage />
+                </suki:SukiSideMenuItem.PageContent>
+            </suki:SukiSideMenuItem>
+            <suki:SukiSideMenuItem Header="聊天" >
+                <suki:SukiSideMenuItem.Icon>
+                    <materialIcons:MaterialIcon Kind="Chat" />
+                </suki:SukiSideMenuItem.Icon>
+                <suki:SukiSideMenuItem.PageContent>
+                    <pages:ChatPage />
+                </suki:SukiSideMenuItem.PageContent>
+            </suki:SukiSideMenuItem>
+            <suki:SukiSideMenuItem Header="工具" >
+                <suki:SukiSideMenuItem.Icon>
+                    <materialIcons:MaterialIcon Kind="Toolbox" />
+                </suki:SukiSideMenuItem.Icon>
+                <suki:SukiSideMenuItem.PageContent>
+                    <pages:ToolsPage />
+                </suki:SukiSideMenuItem.PageContent>
+            </suki:SukiSideMenuItem>
+            <suki:SukiSideMenuItem Header="设置" >
+                <suki:SukiSideMenuItem.Icon>
+                    <materialIcons:MaterialIcon Kind="Settings" />
+                </suki:SukiSideMenuItem.Icon>
+                <suki:SukiSideMenuItem.PageContent>
+                    <pages:SettingsPage />
+                </suki:SukiSideMenuItem.PageContent>
+            </suki:SukiSideMenuItem>
+        </suki:SukiSideMenu.Items>
+    </suki:SukiSideMenu>
+</suki:SukiWindow>

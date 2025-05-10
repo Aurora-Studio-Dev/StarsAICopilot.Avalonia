@@ -1,0 +1,68 @@
+<!-- ... existing code ... -->
+
+<ListBox x:Name="SessionList" 
+         ItemsSource="{Binding Sessions}"
+         SelectedItem="{Binding SelectedSession, Mode=TwoWay}"
+         SelectionMode="Single"
+         SelectedIndex="0">
+    <ListBox.ItemContainerTheme>
+        <ControlTheme TargetType="ListBoxItem">
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border CornerRadius="8" 
+                            Margin="2"
+                            Background="#20FFFFFF"
+                            Opacity="0.8"
+                            Padding="5">
+                        <ContentPresenter />
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </ControlTheme>
+    </ListBox.ItemContainerTheme>
+    <ListBox.ItemTemplate>
+        <DataTemplate>
+            <StackPanel Orientation="Horizontal" Spacing="5">
+                <TextBox Text="{Binding Title}" 
+                         IsReadOnly="{Binding !$parent[ListBoxItem].IsPointerOver}"
+                         KeyDown="OnTitleKeyDown"
+                         BorderThickness="0"
+                         Background="Transparent"/>
+                <Button Foreground="Red"
+                        Click="DeleteSession"
+                        DataContext="{Binding}"
+                        Cursor="Hand"
+                        Padding="5,0"
+                        Background="Transparent"
+                        BorderThickness="0">
+                    <Button.Content>
+                        <materialIcons:MaterialIcon Kind="Delete" />
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+        </DataTemplate>
+    </ListBox.ItemTemplate>
+</ListBox>
+
+<!-- ... existing code ... -->
+<ItemsControl ItemsSource="{Binding Messages}" Margin="10">
+    <ItemsControl.ItemTemplate>
+        <DataTemplate>
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{Binding Sender}" FontWeight="Bold" Grid.Column="0" Margin="0,0,5,0"/>
+                <TextBlock Text="{Binding Message}" Grid.Column="1" TextWrapping="Wrap"/>
+            </Grid>
+        </DataTemplate>
+    </ItemsControl.ItemTemplate>
+</ItemsControl>
+<!-- ... existing code ... -->
+<TextBox FontSize="17" VerticalContentAlignment="Top" Grid.Column="0" TextWrapping="Wrap" Height="150" 
+         suki:TextBoxExtensions.AddDeleteButton="True" HorizontalAlignment="Stretch" 
+         x:Name="UserInput" Text="{Binding UserInput}" />
+<Button Margin="0,5,0,0" VerticalAlignment="Top" Grid.Column="1" Content="发送" Height="50"
+        Command="{Binding SendCommand}" />
+<!-- ... existing code ... -->

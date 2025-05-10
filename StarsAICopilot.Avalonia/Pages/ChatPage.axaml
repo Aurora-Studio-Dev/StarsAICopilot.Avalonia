@@ -1,0 +1,135 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:suki="https://github.com/kikipoulet/SukiUI"
+             xmlns:pages="clr-namespace:StarsAICopilot.Avalonia.Pages"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="StarsAICopilot.Avalonia.Pages.ChatPage"
+             x:DataType="pages:ChatPage">
+    <UserControl.Styles>
+        <Style Selector="ListBox">
+            <Setter Property="Background" Value="Transparent"/>
+        </Style> 
+        <Style Selector="ListBoxItem:pointerover /template/ Border#OutBorder">
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+        <Style Selector="ListBoxItem:selected /template/ Border#OutBorder">
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+        <Style Selector="Button.MdCopyButton">
+            <Setter Property="IsVisible" Value="False"/>
+        </Style>
+    </UserControl.Styles>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <suki:GlassCard Margin="5" Grid.Column="0">
+            <StackPanel>
+                <Button Content="新建对话" HorizontalAlignment="Stretch" Margin="5" Click="CreateNewSession"/>
+                <ListBox x:Name="SessionList" 
+                         ItemsSource="{Binding Sessions}"
+                         SelectedItem="{Binding SelectedSession, Mode=TwoWay}"
+                         SelectionMode="Single">
+                    <ListBox.ItemContainerTheme>
+                        <ControlTheme TargetType="ListBoxItem">
+                            <Setter Property="Template">
+                                <ControlTemplate>
+                                    <Border CornerRadius="8" 
+                                            Margin="2"
+                                            Background="#20FFFFFF"
+                                            Opacity="0.8"
+                                            Padding="5">
+                                        <ContentPresenter />
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter>
+                        </ControlTheme>
+                    </ListBox.ItemContainerTheme>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Spacing="5">
+                                <TextBox Text="{Binding Title}" 
+                                         IsReadOnly="{Binding !$parent[ListBoxItem].IsPointerOver}"
+                                         KeyDown="OnTitleKeyDown"
+                                         BorderThickness="0"
+                                         Background="Transparent"/>
+                                <Button Foreground="Red"
+                                        Click="DeleteSession"
+                                        DataContext="{Binding}"
+                                        Cursor="Hand"
+                                        Padding="5,0"
+                                        Background="Transparent"
+                                        BorderThickness="0">
+                                    <Button.Content>
+                                        <materialIcons:MaterialIcon Kind="Delete" />
+                                    </Button.Content>
+                                </Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </suki:GlassCard>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <suki:GlassCard Margin="5" Grid.Row="0">
+                <StackPanel Margin="10">
+                    <TextBlock FontSize="22">
+                        <Run Text="{Binding SelectedSession.Title}"/>
+                    </TextBlock>
+                </StackPanel>
+            </suki:GlassCard>
+            <suki:GlassCard Margin="5,0" Grid.Row="1">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ItemsControl x:Name="MsgShow" Margin="3"/>
+                </ScrollViewer>
+            </suki:GlassCard>
+            <suki:GlassCard Margin="5" Grid.Row="2">
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Margin="5,0" Grid.Row="0" Orientation="Horizontal">
+                        <Button>
+                            <Button.Content>
+                                <materialIcons:MaterialIcon Kind="Emoji" />
+                            </Button.Content>
+                        </Button>
+                    </StackPanel>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox 
+                            FontSize="17" 
+                            VerticalContentAlignment="Top" 
+                            Grid.Column="0" 
+                            TextWrapping="Wrap" 
+                            Height="150" 
+                            suki:TextBoxExtensions.AddDeleteButton="True" 
+                            HorizontalAlignment="Stretch" 
+                            x:Name="UserInput" />
+                        <Button 
+                            Margin="0,5,0,0" 
+                            VerticalAlignment="Top" 
+                            Grid.Column="1" 
+                            Content="发送" 
+                            Height="50" 
+                            Classes="Flat"
+                            Click="Send"/>
+                    </Grid>
+                </Grid>
+            </suki:GlassCard>
+        </Grid>
+    </Grid>
+</UserControl>
